@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaFunded - Premium Prop Firm</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
+}
+
+body{
+  background:#070A12;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* glow background */
+.bg-glow{
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#4f46e5,transparent 60%);
+  top:-200px;
+  left:-200px;
+  filter:blur(80px);
+  opacity:0.4;
+  z-index:-1;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  position:sticky;
+  top:0;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:700;
+  background:linear-gradient(90deg,#4f46e5,#06b6d4);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+nav a{
+  color:#ccc;
+  margin-left:20px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-size:54px;
+  background:linear-gradient(90deg,#fff,#a5b4fc,#67e8f9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fadeUp 1s ease;
+}
+
+.hero p{
+  max-width:650px;
+  margin:20px auto;
+  color:#b6b6b6;
+  line-height:1.6;
+}
+
+.btn{
+  padding:12px 26px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:20px;
+  background:linear-gradient(90deg,#4f46e5,#06b6d4);
+  color:#fff;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(79,70,229,0.5);
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:60px;
+}
+
+.stat{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:20px;
+  width:200px;
+  border-radius:16px;
+  text-align:center;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+
+.stat:hover{
+  transform:translateY(-5px);
+  border-color:#4f46e5;
+}
+
+/* PLANS */
+.section-title{
+  text-align:center;
+  font-size:34px;
+  margin:80px 0 30px;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  padding:20px;
+}
+
+.card{
+  width:300px;
+  padding:25px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background:linear-gradient(120deg,transparent,rgba(79,70,229,0.15),transparent);
+  transform:translateX(-100%);
+}
+
+.card:hover::before{
+  transform:translateX(100%);
+  transition:0.8s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#06b6d4;
+}
+
+.price{
+  font-size:28px;
+  margin:10px 0;
+  color:#06b6d4;
+}
+
+/* FAQ */
+.faq{
+  max-width:800px;
+  margin:60px auto;
+  padding:20px;
+}
+
+.faq-item{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  margin-bottom:12px;
+  padding:18px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.faq-answer{
+  display:none;
+  margin-top:10px;
+  color:#bdbdbd;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#888;
+  border-top:1px solid rgba(255,255,255,0.08);
+  margin-top:60px;
+}
+
+/* animation */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{
+    padding:15px 20px;
+  }
+  .hero h1{
+    font-size:36px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="logo">AquibFunded</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#plans">Plans</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Trade Like a Pro. Get Funded.</h1>
+  <p>Join elite traders worldwide and access funded accounts up to $200,000 with industry leading profit splits and instant payouts.</p>
+  <button class="btn">Start Challenge</button>
+
+  <div class="stats">
+    <div class="stat">
+      <h2>$75M+</h2>
+      <p>Payouts</p>
+    </div>
+    <div class="stat">
+      <h2>30K+</h2>
+      <p>Traders</p>
+    </div>
+    <div class="stat">
+      <h2>90%</h2>
+      <p>Profit Split</p>
+    </div>
+  </div>
+</section>
+
+<h2 class="section-title" id="plans">Choose Your Challenge</h2>
+
+<section class="cards">
+
+  <div class="card">
+    <h3>Starter</h3>
+    <div class="price">$49</div>
+    <p>✔ 10% Target</p>
+    <p>✔ 5% Max Loss</p>
+    <p>✔ $10K Funded</p>
+    <button class="btn">Buy Now</button>
+  </div>
+
+  <div class="card">
+    <h3>Pro</h3>
+    <div class="price">$149</div>
+    <p>✔ 8% Target</p>
+    <p>✔ 10% Max Loss</p>
+    <p>✔ $50K Funded</p>
+    <button class="btn">Buy Now</button>
+  </div>
+
+  <div class="card">
+    <h3>Elite</h3>
+    <div class="price">$299</div>
+    <p>✔ 5% Target</p>
+    <p>✔ 10% Max Loss</p>
+    <p>✔ $100K Funded</p>
+    <button class="btn">Buy Now</button>
+  </div>
+
+</section>
+
+<h2 class="section-title">FAQ</h2>
+
+<section class="faq" id="faq">
+
+  <div class="faq-item">
+    <h3>How funding works?</h3>
+    <div class="faq-answer">Pass challenge → Get funded → Start trading real capital.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3>Are payouts fast?</h3>
+    <div class="faq-answer">Yes, payouts are processed within 24–48 hours.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3>Refund policy?</h3>
+    <div class="faq-answer">Challenge fee is refunded after first payout.</div>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 NovaFunded. Built for elite traders.
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.addEventListener("click",()=>{
+    let ans = item.querySelector(".faq-answer");
+    ans.style.display = ans.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html><!-- SAME HTML ABOVE (UNCHANGED) -->
+<!-- ONLY ADD THESE CHANGES -->
+
+<script>
+// FAQ toggle
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.addEventListener("click",()=>{
+    let ans = item.querySelector(".faq-answer");
+    ans.style.display = ans.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+<!-- 🔥 PAYMENT MODAL -->
+<div id="paymentModal" style="
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(10px);
+">
+
+  <div style="
+  background:#0f172a;
+  padding:25px;
+  border-radius:16px;
+  width:320px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.1);
+  ">
+
+    <h2 style="margin-bottom:10px;">Complete Payment</h2>
+    <p style="color:#aaa;margin-bottom:15px;">Scan QR or Pay via UPI</p>
+
+    <!-- QR CODE -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=UPI-PAYMENT-DEMO"
+    style="border-radius:10px;margin-bottom:15px;">
+
+    <p style="font-size:14px;color:#aaa;">UPI ID: aauibfunded@upi</p>
+
+    <button onclick="payNow()" style="
+      margin-top:15px;
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:10px;
+      background:linear-gradient(90deg,#4f46e5,#06b6d4);
+      color:#fff;
+      cursor:pointer;
+    ">
+      Pay & Continue
+    </button>
+
+    <button onclick="closeModal()" style="
+      margin-top:10px;
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:10px;
+      background:#1f2937;
+      color:#fff;
+      cursor:pointer;
+    ">
+      Cancel
+    </button>
+
+  </div>
+
+</div>
+
+<!-- 🟢 TRUST SECTION (NEW - ADDED FOR PREMIUM FEEL) -->
+<section style="padding:80px 20px;text-align:center;">
+
+  <h2 class="section-title">Trusted By Traders Worldwide</h2>
+
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;">
+
+    <div class="card">
+      <h3>Instant Payouts</h3>
+      <p>Withdraw profits within 24 hours</p>
+    </div>
+
+    <div class="card">
+      <h3>Verified Certificates</h3>
+      <p>Every payout comes with proof certificate</p>
+    </div>
+
+    <div class="card">
+      <h3>Regulated System</h3>
+      <p>Fair evaluation rules & transparency</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🟢 FOOTER ADDON -->
+<section style="text-align:center;padding:40px;color:#777;">
+
+  <h3 style="color:#fff;">Recent Payout Certificates</h3>
+  <p>✔ Trader #1023 → $4,200 payout confirmed</p>
+  <p>✔ Trader #2041 → $1,850 payout confirmed</p>
+  <p>✔ Trader #3320 → $9,100 payout confirmed</p>
+
+</section>
+
+<script>
+
+// OPEN PAYMENT MODAL
+document.querySelector(".btn").addEventListener("click",()=>{
+  document.getElementById("paymentModal").style.display="flex";
+});
+
+// CLOSE MODAL
+function closeModal(){
+  document.getElementById("paymentModal").style.display="none";
+}
+
+// PAYMENT ACTION (SIMULATION)
+function payNow(){
+  alert("Payment Successful! Redirecting to Dashboard...");
+  window.location.href = "#dashboard";
+}
+
+</script>
